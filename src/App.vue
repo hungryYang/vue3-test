@@ -11,15 +11,28 @@
     我是大个按钮
   </Button>
   <Button
-    @click="buttonClick"
-    disabled
+    @click="changeDialogStatus"
   >
-    我是个按钮
+    打开弹窗
   </Button>
-  <Dialog>
-    <div v-slot="title">
-      1111
-    </div>
+  <Dialog
+    :visible="dialogVisible"
+  >
+    <template v-slot:title>
+      <span>
+        提示
+      </span>
+    </template>
+    <template v-slot:content>
+      <span>
+        内容
+      </span>
+    </template>
+    <template v-slot:footer>
+      <Button @click="changeDialogStatus">
+        取消
+      </Button>
+    </template>
   </Dialog>
 </template>
 
@@ -41,6 +54,7 @@ export default {
   setup(key) {
     let count = ref(0)
     let inputValue = ref('aaa')
+    let dialogVisible = ref(false)
     const addCount = () => {
       count.value++
     }
@@ -49,11 +63,16 @@ export default {
     const buttonClick = () => {
       console.log('buttonClick')
     }
+    const changeDialogStatus = () => {
+      dialogVisible.value = !dialogVisible.value
+    }
     return {
       count,
       addCount,
       inputValue,
-      buttonClick
+      buttonClick,
+      dialogVisible,
+      changeDialogStatus
     }
   }
 }

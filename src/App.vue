@@ -34,6 +34,8 @@
       </Button>
     </template>
   </Dialog>
+
+  <TestJsx title="试验">我是个JSX</TestJsx>
 </template>
 
 <script>
@@ -43,13 +45,15 @@ import Dialog from './components/Dialog.vue'
 import Test from './components/Test.vue'
 import {ref, provide} from "vue";
 import Button from './components/Button.vue'
+import TestJsx from './components/test.tsx'
 export default {
   name: 'App',
   components: {
     HelloWorld,
     Test,
     Button,
-    Dialog
+    Dialog,
+    TestJsx
   },
   setup(key) {
     let count = ref(0)

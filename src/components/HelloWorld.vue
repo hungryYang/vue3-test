@@ -4,7 +4,7 @@
   <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
 </template>
 
-<script>
+<script lang="ts">
 import { inject } from 'vue'
 export default {
   name: 'HelloWorld',
@@ -12,7 +12,7 @@ export default {
     msg: String
   },
   setup () {
-    const count = inject('count')
+    const count:number = inject('count')
     const addCount = inject('addCount')
     return {
       count,
